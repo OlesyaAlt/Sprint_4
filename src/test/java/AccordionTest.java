@@ -4,13 +4,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.openqa.selenium.WebDriver;
-import ru.yandex.praktikum.WebDriverFactory;
 import ru.yandex.praktikum.scooter.BeforeAfterAbstract;
 import ru.yandex.praktikum.scooter.HomePageScooter;
 
 import static org.junit.Assert.assertTrue;
-import static ru.yandex.praktikum.scooter.constants.Url.URL_SCOOTER;
+
 
 
 @RunWith(Parameterized.class)
