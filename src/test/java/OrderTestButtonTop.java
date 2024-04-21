@@ -3,8 +3,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import ru.yandex.praktikum.WebDriverFactory;
 import ru.yandex.praktikum.scooter.BeforeAfterAbstract;
 import ru.yandex.praktikum.scooter.HomePageScooter;
 import ru.yandex.praktikum.scooter.OrderPageFirst;
@@ -13,7 +11,7 @@ import ru.yandex.praktikum.scooter.OrderPageSecond;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class OrderTestButtonDown extends BeforeAfterAbstract {
+public class OrderTestButtonTop extends BeforeAfterAbstract {
     private final String name;
     private final String surname;
     private final String address;
@@ -23,7 +21,7 @@ public class OrderTestButtonDown extends BeforeAfterAbstract {
     private final String rentalPeriod;
     private final String comment;
 
-    public OrderTestButtonDown( String name, String surname, String address, String station, String telephon, String dateForOrder, String rentalPeriod, String comment) {
+    public OrderTestButtonTop( String name, String surname, String address, String station, String telephon, String dateForOrder, String rentalPeriod, String comment) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -47,9 +45,9 @@ public class OrderTestButtonDown extends BeforeAfterAbstract {
         super.setup();
     }
         @Test
-        public void orderTestButtonDown () {
+        public void orderTest () {
             HomePageScooter homePageScooter = new HomePageScooter(webDriver);
-            homePageScooter.clickMakeOrderButtonDown();
+            homePageScooter.clickMakeOrderButtonTop();
 
             OrderPageFirst orderPageFirst = new OrderPageFirst(webDriver);
             orderPageFirst.inputOrderInfoClient(name, surname, address, station, telephon);
@@ -57,16 +55,15 @@ public class OrderTestButtonDown extends BeforeAfterAbstract {
 
             OrderPageSecond orderPageSecond = new OrderPageSecond(webDriver);
             orderPageSecond.inputOrderInfoClient(dateForOrder, rentalPeriod);
-            orderPageSecond.choiceColorGray();
+            orderPageSecond.choiceColorBlack();
             orderPageSecond.inputComment(comment);
             orderPageSecond.clickMakeOrderButton();
             orderPageSecond.clickYesButton();
             assertTrue(orderPageSecond.orderIsMakeIsDisplayed());
 
         }
-    @After
-    public void close() {
-        super.tearDown();
+        @After
+        public void close() {
+          super.tearDown();
+        }
     }
-    }
-

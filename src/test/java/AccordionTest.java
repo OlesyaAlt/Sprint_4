@@ -6,16 +6,17 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.praktikum.WebDriverFactory;
+import ru.yandex.praktikum.scooter.BeforeAfterAbstract;
 import ru.yandex.praktikum.scooter.HomePageScooter;
 
 import static org.junit.Assert.assertTrue;
+import static ru.yandex.praktikum.scooter.constants.Url.URL_SCOOTER;
+
 
 @RunWith(Parameterized.class)
-public class AccordionTest {
-private static final String BROWSER = "chrom";
-private WebDriver webDriver;
-private int index;
-private String answer;
+public class AccordionTest extends BeforeAfterAbstract {
+private final int index;
+private final String answer;
 public AccordionTest(int index, String answer){
     this.index=index;
     this.answer=answer;
@@ -35,14 +36,13 @@ public static Object[][] data() {
     };
 }
 
-@Before
-    public void setup(){
-    webDriver = WebDriverFactory.getWebDriver(BROWSER);
-    webDriver.get("https://qa-scooter.praktikum-services.ru");
-}
+    @Before
+    public void open() {
+        super.setup();
+    }
 
 @Test
-public void AccordionTest(){
+public void accordionTest(){
     HomePageScooter homePageScooter = new HomePageScooter(webDriver);
     homePageScooter.clickAgreeCookie();
     homePageScooter.clickFieldQuestion(index);
@@ -50,8 +50,8 @@ public void AccordionTest(){
     assertTrue(answerIsDisplayed);
 }
 
-@After
-    public void tearDown(){
-    webDriver.quit();
-}
+    @After
+    public void close() {
+        super.tearDown();
+    }
 }
