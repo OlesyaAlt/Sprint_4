@@ -1,18 +1,15 @@
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import ru.yandex.praktikum.scooter.BeforeAfterAbstract;
 import ru.yandex.praktikum.scooter.HomePageScooter;
 
 import static org.junit.Assert.assertTrue;
 
 
-
 @RunWith(Parameterized.class)
-public class AccordionTest extends BeforeAfterAbstract {
+public class AccordionTest extends BaseTest {
 private final int index;
 private final String answer;
 public AccordionTest(int index, String answer){
@@ -34,10 +31,7 @@ public static Object[][] data() {
     };
 }
 
-    @Before
-    public void open() {
-        super.setup();
-    }
+
 
 @Test
 public void accordionTest(){
@@ -48,8 +42,5 @@ public void accordionTest(){
     assertTrue(answerIsDisplayed);
 }
 
-    @After
-    public void close() {
-        super.tearDown();
-    }
+
 }

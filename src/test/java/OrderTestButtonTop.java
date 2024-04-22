@@ -1,9 +1,7 @@
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.yandex.praktikum.scooter.BeforeAfterAbstract;
 import ru.yandex.praktikum.scooter.HomePageScooter;
 import ru.yandex.praktikum.scooter.OrderPageFirst;
 import ru.yandex.praktikum.scooter.OrderPageSecond;
@@ -11,7 +9,7 @@ import ru.yandex.praktikum.scooter.OrderPageSecond;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class OrderTestButtonTop extends BeforeAfterAbstract {
+public class OrderTestButtonTop extends BaseTest {
     private final String name;
     private final String surname;
     private final String address;
@@ -39,11 +37,6 @@ public class OrderTestButtonTop extends BeforeAfterAbstract {
         };
     }
 
-
-    @Before
-    public void open() {
-        super.setup();
-    }
         @Test
         public void orderTest () {
             HomePageScooter homePageScooter = new HomePageScooter(webDriver);
@@ -61,9 +54,5 @@ public class OrderTestButtonTop extends BeforeAfterAbstract {
             orderPageSecond.clickYesButton();
             assertTrue(orderPageSecond.orderIsMakeIsDisplayed());
 
-        }
-        @After
-        public void close() {
-          super.tearDown();
         }
     }
