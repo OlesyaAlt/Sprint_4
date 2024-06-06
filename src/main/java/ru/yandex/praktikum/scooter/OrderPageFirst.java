@@ -25,7 +25,7 @@ public class OrderPageFirst {
     public OrderPageFirst(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-public void inputOrderInfoClient(String name,String surname, String address, String station, String telephon){
+public void inputOrderInfoClient(String name,String surname, String address, String station, String telephone){
     WebElement nameInput = webDriver.findElement(nameClientFieldLocator);
     nameInput.sendKeys(name);
     WebElement surnameInput = webDriver.findElement(surnameClientFieldLocator);
@@ -37,8 +37,8 @@ public void inputOrderInfoClient(String name,String surname, String address, Str
     WebElement stationInput = webDriver.findElement(By.xpath(String.format(stationLocator,station)));
     ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();",stationInput);
     stationInput.click();
-    WebElement telephonInput = webDriver.findElement(telephoneClientFieldLocator);
-    telephonInput.sendKeys(telephon);
+    WebElement telephoneInput = webDriver.findElement(telephoneClientFieldLocator);
+    telephoneInput.sendKeys(telephone);
 }
 public void clickNextButton(){
         WebElement nextButton = webDriver.findElement(nextButtonLocator);

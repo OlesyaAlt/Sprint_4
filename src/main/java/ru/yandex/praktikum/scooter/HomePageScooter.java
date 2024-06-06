@@ -33,6 +33,7 @@ public void clickMakeOrderButtonTop(){
     public void clickMakeOrderButtonDown(){
         WebElement makeOrderButtonDown = webDriver.findElement(makeOrderButtonDownLocator);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();",makeOrderButtonDown);
+        new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable (makeOrderButtonDown));
         makeOrderButtonDown.click();
     }
 public void clickAgreeCookie(){
