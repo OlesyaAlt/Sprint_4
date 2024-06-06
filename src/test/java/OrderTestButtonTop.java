@@ -14,17 +14,17 @@ public class OrderTestButtonTop extends BaseTest {
     private final String surname;
     private final String address;
     private final String station;
-    private final String telephon;
+    private final String telephone;
     private final String dateForOrder;
     private final String rentalPeriod;
     private final String comment;
 
-    public OrderTestButtonTop( String name, String surname, String address, String station, String telephon, String dateForOrder, String rentalPeriod, String comment) {
+    public OrderTestButtonTop( String name, String surname, String address, String station, String telephone, String dateForOrder, String rentalPeriod, String comment) {
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.station = station;
-        this.telephon = telephon;
+        this.telephone = telephone;
         this.dateForOrder = dateForOrder;
         this.rentalPeriod = rentalPeriod;
         this.comment = comment;
@@ -43,7 +43,7 @@ public class OrderTestButtonTop extends BaseTest {
             homePageScooter.clickMakeOrderButtonTop();
 
             OrderPageFirst orderPageFirst = new OrderPageFirst(webDriver);
-            orderPageFirst.inputOrderInfoClient(name, surname, address, station, telephon);
+            orderPageFirst.inputOrderInfoClient(name, surname, address, station, telephone);
             orderPageFirst.clickNextButton();
 
             OrderPageSecond orderPageSecond = new OrderPageSecond(webDriver);
